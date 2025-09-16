@@ -17,11 +17,21 @@
 #  2. 2D_INTEGER_ARRAY queries
 
 def arrayManipulation(n, queries):
-    arr = [0] * n
-    for s, e, v in queries:
-        for i in range(s - 1, e):
-            arr[i] += int(v)
-    return max(arr)
+    # Create difference array with an extra slot for boundary handling
+    arr = [0] * (n + 2)
+
+    # Mark start and end+1 for each operation
+    for a, b, k in queries:
+        arr[a] += k
+        arr[b + 1] -= k
+
+    # Compute prefix sum and track maximum value
+    max_val = temp = 0
+    for i in range(1, n + 1):
+        temp += arr[i]
+        max_val = max(max_val, temp)
+
+    return max_val
 
 
 if __name__ == '__main__':
