@@ -53,7 +53,6 @@ def preOrder(root):
     def traverse(node):
         if node is None:
             return
-        # Root → Left → Right
         info.append(node.info)
         traverse(node.left)
         traverse(node.right)
