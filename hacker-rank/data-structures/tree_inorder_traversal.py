@@ -1,5 +1,5 @@
-# Complete the  function in the editor below, which has  parameter: a pointer to the root of a binary tree.
-# It must print the values in the tree's preorder traversal as a single line of space-separated values.
+# Complete the  function in your editor below, which has  parameter: a pointer to the root of a binary tree.
+# It must print the values in the tree's inorder traversal as a single line of space-separated values.
 
 class Node:
     def __init__(self, info):
@@ -47,15 +47,14 @@ self.info (the value of the node)
 """
 
 
-def preOrder(root):
+def inOrder(root):
     info = []
 
     def traverse(node):
         if node is None:
             return
-        # Root → Left → Right
-        info.append(node.info)
         traverse(node.left)
+        info.append(node.info)
         traverse(node.right)
 
     traverse(root)
@@ -71,4 +70,4 @@ arr = list(map(int, input().split()))
 for i in range(t):
     tree.create(arr[i])
 
-preOrder(tree.root)
+inOrder(tree.root)

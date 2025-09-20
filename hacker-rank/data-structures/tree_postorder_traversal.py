@@ -53,6 +53,7 @@ def postOrder(root):
     def traverse(node):
         if node is None:
             return
+        # Left → Right → Root
         traverse(node.left)
         traverse(node.right)
         info.append(node.info)
