@@ -50,14 +50,14 @@ self.info (the value of the node)
 def preOrder(root):
     info = []
 
-    def pre_order(node):
+    def traverse(node):
         if node is None:
             return
         info.append(node.info)
-        pre_order(node.left)
-        pre_order(node.right)
+        traverse(node.left)
+        traverse(node.right)
 
-    pre_order(root)
+    traverse(root)
 
     print(" ".join(map(str, info)))
 

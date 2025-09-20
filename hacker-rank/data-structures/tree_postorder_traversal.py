@@ -50,14 +50,14 @@ self.info (the value of the node)
 def postOrder(root):
     info = []
 
-    def post_order(node):
+    def traverse(node):
         if node is None:
             return
-        post_order(node.left)
-        post_order(node.right)
+        traverse(node.left)
+        traverse(node.right)
         info.append(node.info)
 
-    post_order(root)
+    traverse(root)
 
     print(" ".join(map(str, info)))
 
