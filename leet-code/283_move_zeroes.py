@@ -7,8 +7,8 @@ from typing import List
 
 class Solution:
     def moveZeroes(self, nums: List[int]) -> None:
-        lastN_non_zero_found_at = 0
+        last_non_zero_found_at = 0
         for i in range(len(nums)):
             if nums[i] != 0:
-                nums[lastN_non_zero_found_at], nums[i] = nums[i], nums[lastN_non_zero_found_at]
-                lastN_non_zero_found_at += 1
+                nums[last_non_zero_found_at], nums[i] = nums[i], nums[last_non_zero_found_at]
+                last_non_zero_found_at += 1
