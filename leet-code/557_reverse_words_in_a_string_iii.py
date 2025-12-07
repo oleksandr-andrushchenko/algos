@@ -3,4 +3,21 @@
 
 class Solution:
     def reverseWords(self, s: str) -> str:
-        return " ".join(word[::-1] for word in s.split(" "))
+        result = []
+        word = []
+
+        for ch in s:
+            if ch.isspace():
+                # flush word
+                if word:
+                    result.append(''.join(reversed(word)))
+                    word = []
+                result.append(ch)
+            else:
+                word.append(ch)
+
+        # flush last word
+        if word:
+            result.append(''.join(reversed(word)))
+
+        return ''.join(result)
