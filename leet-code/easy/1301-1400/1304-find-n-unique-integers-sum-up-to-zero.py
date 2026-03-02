@@ -2,4 +2,15 @@
 
 class Solution:
     def sumZero(self, n: int) -> list[int]:
-        pass
+        result = []
+
+        # Add symmetric pairs
+        for i in range(1, n // 2 + 1):
+            result.append(i)
+            result.append(-i)
+
+        # If n is odd, add 0
+        if n % 2 == 1:
+            result.append(0)
+
+        return result
