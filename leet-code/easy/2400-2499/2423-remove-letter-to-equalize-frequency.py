@@ -16,7 +16,7 @@ class Solution:
     def equalFrequency(self, word: str) -> bool:
         count = Counter(word)
 
-        for ch in count:
+        for ch in list(count.keys()):
             count[ch] -= 1
 
             if count[ch] == 0:
