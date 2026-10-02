@@ -5,5 +5,19 @@
 #
 # For example, 1 day is 24 hours, 2 days is 48 hours, 3 days is 72 hours, and so on.
 
+from typing import List
+
+
 class Solution:
     def countCompleteDayPairs(self, hours: List[int]) -> int:
+        counts = [0] * 24
+        result = 0
+
+        for hour in hours:
+            remainder = hour % 24
+            complement = (-remainder) % 24
+
+            result += counts[complement]
+            counts[remainder] += 1
+
+        return result
