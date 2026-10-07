@@ -1,0 +1,22 @@
+# You are given an integer array nums of size n. For each index i where 0 <= i < n, define a subarray nums[start ... i]
+# where start = max(0, i - nums[i]).
+#
+# Return the total sum of all elements from the subarray defined for each index in the array.
+
+from typing import List
+
+
+class Solution:
+    def subarraySum(self, nums: List[int]) -> int:
+        prefix = [0]
+
+        for num in nums:
+            prefix.append(prefix[-1] + num)
+
+        result = 0
+
+        for i, num in enumerate(nums):
+            start = max(0, i - num)
+            result += prefix[i + 1] - prefix[start]
+
+        return result
