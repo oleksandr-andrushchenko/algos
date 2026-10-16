@@ -7,8 +7,8 @@
 # A prime number is a natural number greater than 1 with only two factors, 1 and itself.
 
 
-from typing import List
 from collections import Counter
+from typing import List
 
 
 class Solution:
